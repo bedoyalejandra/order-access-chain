@@ -1,11 +1,20 @@
 class User {
-  String username;
-  String password;
-  bool isAdmin;
+  final String _username;
+  final String _password;
+  final bool _isAdmin;
 
   User({
-    required this.username,
-    required this.password,
-    this.isAdmin = false,
-  });
+    required String username,
+    required String password,
+    bool isAdmin = false,
+  })  : _username = username,
+        _password = password,
+        _isAdmin = isAdmin;
+
+  String get username => _username;
+  bool get isAdmin => _isAdmin;
+
+  bool isPasswordValid(String passwordToCheck) {
+    return _password == passwordToCheck;
+  }
 }
