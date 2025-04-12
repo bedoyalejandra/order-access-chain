@@ -8,10 +8,10 @@ class CacheHandler extends Handler {
   bool handle(Request request) {
     String key = request.data.toString();
     if (cache.containsKey(key)) {
-      print("Cached response returned.");
+      print("⚡️ Cached response returned.");
       return false;
     }
-    print("No cache, continue");
+    print("🗃️ No cache, continue");
     return next?.handle(request) ?? true;
   }
 }
