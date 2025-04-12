@@ -4,7 +4,7 @@ import 'handler.dart';
 class AuthHandler extends Handler {
   @override
   bool handle(Request request) {
-    if (request.user == null || request.user!.isPasswordValid('1234')) {
+    if (request.user == null || !request.user!.isPasswordValid('1234')) {
       print("❌ Auth failed");
       return false;
     }

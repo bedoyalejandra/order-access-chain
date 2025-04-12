@@ -3,15 +3,23 @@ import 'handlers/auth_handler.dart';
 import 'handlers/brute_force_protection_handler.dart';
 import 'handlers/cache_handler.dart';
 import 'handlers/data_sanitization_handler.dart';
+import 'handlers/handler.dart';
 import 'request.dart';
 import 'user.dart';
 
 void main() {
-  final handler = AuthHandler()
-    ..setNext(AdminHandler())
-    ..setNext(DataSanitizationHandler())
-    ..setNext(BruteForceProtectionHandler())
-    ..setNext(CacheHandler());
+  Handler handler = AuthHandler();
+  Handler authorizationHandler = AdminHandler();
+  Handler dataSanitizationHandler = DataSanitizationHandler();
+  Handler bruteForceHandler = BruteForceProtectionHandler();
+  Handler cacheHandler = CacheHandler();
+
+  // Establecer la cadena de responsabilidad
+  handler
+      .setNext(authorizationHandler)
+      .setNext(dataSanitizationHandler)
+      .setNext(bruteForceHandler)
+      .setNext(cacheHandler);
 
   final request = Request(
     user: User(username: 'admin', password: '1234', isAdmin: true),
