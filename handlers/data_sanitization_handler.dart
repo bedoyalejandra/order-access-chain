@@ -8,6 +8,14 @@ class DataSanitizationHandler extends Handler {
       print("🚨 Malicious input detected.");
       return false;
     }
+
+    request.data.updateAll((key, value) {
+      if (value is String) {
+        return value.replaceAll(RegExp(r'[^\w\s@.-]'), '');
+      }
+      return value;
+    });
+    
     print("🧼 Data sanitized");
     return super.handle(request);
   }

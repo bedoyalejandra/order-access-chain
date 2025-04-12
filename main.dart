@@ -24,7 +24,10 @@ void main() {
   final request = Request(
     user: User(username: 'admin', password: '1234', isAdmin: true),
     ip: '192.168.1.1',
-    data: {'orderId': 42},
+    data: {
+      'orderId': 42,
+      //'item': '<script>'
+    },
   );
 
   final result = handler.handle(request);
