@@ -12,6 +12,6 @@ class CacheHandler extends Handler {
       return false;
     }
     print("🗃️ No cache, continue");
-    return next?.handle(request) ?? true;
+    return super.handle(request);
   }
 }

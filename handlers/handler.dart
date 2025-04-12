@@ -8,5 +8,10 @@ abstract class Handler {
     return handler;
   }
 
-  bool handle(Request request);
+  bool handle(Request request) {
+    if (next != null) {
+      return next!.handle(request);
+    }
+    return true;
+  }
 }

@@ -9,6 +9,6 @@ class AdminHandler extends Handler {
       return false;
     }
     print('👑 Permission granted');
-    return next?.handle(request) ?? true;
+    return super.handle(request);
   }
 }

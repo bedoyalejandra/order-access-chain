@@ -9,6 +9,6 @@ class DataSanitizationHandler extends Handler {
       return false;
     }
     print("🧼 Data sanitized");
-    return next?.handle(request) ?? true;
+    return super.handle(request);
   }
 }

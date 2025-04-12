@@ -12,6 +12,6 @@ class BruteForceProtectionHandler extends Handler {
       return false;
     }
     print("🛡️ Brute force protection passed");
-    return next?.handle(request) ?? true;
+    return super.handle(request);
   }
 }

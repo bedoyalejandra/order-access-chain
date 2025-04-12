@@ -9,6 +9,6 @@ class AuthHandler extends Handler {
       return false;
     }
     print("✅ Auth passed");
-    return next?.handle(request) ?? true;
+    return super.handle(request);
   }
 }
