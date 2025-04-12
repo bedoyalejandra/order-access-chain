@@ -1,5 +1,5 @@
 import '../request.dart';
-import 'Handler.dart';
+import 'handler.dart';
 
 class AuthHandler extends Handler {
   @override
